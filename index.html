@@ -22,7 +22,7 @@
             top: 0;
             left: 0;
             /* Preserve aspet ratio */
-
+        
         min-width: 100vw;
         min-height: 100vh;
     }
@@ -41,7 +41,8 @@
             <form style="width:90vw">
                 <input id="username" type="text" placeholder="Username">
                 <input id="password" type="password" placeholder="Password" style="margin-bottom:7vh">
-                <button class="btn btn-block btn-positive" style="margin-bottom:3vh">Login</button>
+                <button id="btnlogin" class="btn btn-block btn-positive" style="margin-bottom:3vh">Login</button>
+                <button id="btnloading" class="btn btn-block btn-positive" style="margin-bottom:3vh; display:none">Loading...</button>
                 <button class="btn btn-block btn-primary" style="margin-bottom:3vh">
                     <i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook
                 </button>
@@ -54,6 +55,8 @@
 
 
 </body>
+<script src="js/jquery-1.12.1.min.js"></script>
+<script src="js/script.js"></script>
 <script src="libs/bootstrap/js/jquery-3.1.1.js"></script>
 <script src="libs/bootstrap/js/bootstrap.js"></script>
 <script>
@@ -71,17 +74,14 @@
 
     document.addEventListener("deviceready", onDeviceReady, true);
 
-                 function onDeviceReady()
-                 {
-                       document.addEventListener("backbutton", BackKeyDown, true);
-                 }
+    function onDeviceReady() {
+        document.addEventListener("backbutton", BackKeyDown, true);
+    }
 
-                 function BackKeyDown()
-                 {
-                     navigator.notification.alert();
-                     //navigator.app.exitApp();  // For Exit Application
-                 }
-
+    function BackKeyDown() {
+        navigator.notification.alert();
+        //navigator.app.exitApp();  // For Exit Application
+    }
 </script>
 
 </html>
