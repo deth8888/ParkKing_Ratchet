@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="libs/ratchet/ratchet.css">
     <link rel="stylesheet" href="libs/ratchet/ratchet-theme-android.css">
     <link rel="stylesheet" href="css/app.css">
-
+    <link rel="stylesheet" href="css/sweetalert.css">
     <script src="libs/ratchet/ratchet.js"></script>
 
     <style>
@@ -38,7 +38,7 @@
     <div class="content">
         <center>
             <img id="pk-logo" src="img/logo.png" alt="" style="margin-top:15vh; margin-bottom: 5vh">
-            <form style="width:90vw">
+            <div style="width:90vw">
                 <input id="username" type="text" placeholder="Username">
                 <input id="password" type="password" placeholder="Password" style="margin-bottom:7vh">
                 <button id="btnlogin" class="btn btn-block btn-positive" style="margin-bottom:3vh">Login</button>
@@ -47,7 +47,7 @@
                     <i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook
                 </button>
                 <a onclick="signupPage()">No Account Yet? Sign up now!</a>
-            </form>
+            </div>
         </center>
 
     </div>
@@ -56,9 +56,10 @@
 
 </body>
 <script src="js/jquery-1.12.1.min.js"></script>
-<script src="js/script.js"></script>
-<script src="libs/bootstrap/js/jquery-3.1.1.js"></script>
 <script src="libs/bootstrap/js/bootstrap.js"></script>
+<script src="js/sweetalert.min.js"></script>
+<script src="js/script.js"></script>
+
 <script>
     function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, true);

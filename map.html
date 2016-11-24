@@ -15,45 +15,54 @@
     <link rel="stylesheet" href="css/app.css">
 
     <script src="libs/ratchet/ratchet.js"></script>
-
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
 </head>
 <!-- GOD'S NOT DEAD! HE'S TRULY ALIVE! -->
 
 <body>
     <header class="bar bar-nav">
         <a class="icon icon-gear pull-right" href="#settingsModal"></a>
-        <h1 class="title">ParkKing Finder</h1>
+        <h1 class="title">Yay! We found you a ParkKing!</h1>
     </header>
-    <div id="parking-list" class="content">
-        <div class="bar bar-standard bar-header-secondary">
-            <form>
-                <input type="search" class="search" placeholder="Search">
-            </form>
-        </div>
-        <li class="table-view-cell table-view-divider" style="height: 7vh">Recommended Parking Areas</li>
-        <!--        <input type="search" class="search" placeholder="Search">-->
-        <ul id="ul-search" class="list table-view">
-
-            <!--
-            <li class="table-view-cell media">
-    <a class="push-right" href="choose-theater.html" data-transition="slide-in">
-        <img class="media-object pull-left" src="http://placehold.it/64x64">
-        <div class="media-body">
-            <h3>Argo</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur.</p>
-        </div>
-    </a>
-</li>
--->
-        </ul>
-
-    </div>
+    <div id="map"></div>
 </body>
+<script>
+    function initMap() {
+        var parkingLat = parseFloat(window.sessionStorage.getItem('lat'));
+        var parkingLng = parseFloat(window.sessionStorage.getItem('lng'));
+        //        alert(parkingLat)
+        //        alert(parkingLng)
+        //
+        //        alert(isNaN(parkingLat))
+        //        alert(isNaN(parkingLng))
 
+        var parkingLoc = {
+            lat: parkingLat,
+            lng: parkingLng
+        };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 17,
+            center: parkingLoc
+        });
+        var marker = new google.maps.Marker({
+            position: parkingLoc,
+            map: map
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCD3NSz6m7hFnvXdWFbOznCNt2hap638nA&callback=initMap">
+</script>
+<!--<script language=javascript src='http://maps.google.com/maps/api/js?key=AIzaSyB3wsW0G2Mk9jqyIf-yDfQvDxlIsfUfBE8&callback=initMap'></script>-->
 <script src="js/jquery-1.12.1.min.js"></script>
 <script src="libs/bootstrap/js/bootstrap.js"></script>
 <script src="js/list.min.js"></script>
 <script src="js/script.js"></script>
 <script src="js/search.js"></script>
+<script src="js/map.js"></script>
 
 </html>

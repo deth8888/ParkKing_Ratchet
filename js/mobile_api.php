@@ -11,7 +11,7 @@ $mysql_user = "tonsqknx_parking";
 $mysql_password = "P@ssword1227";
 $mysql_database = "tonsqknx_parking";
 
-$con = mysqli_connect($mysql_hostname, $mysql_user,$mysql_password,$mysql_user); //website
+$con = mysqli_connect($mysql_hostname, $mysql_user,$mysql_password,$mysql_database); //website
 
 // Check connection
 if (mysqli_connect_errno())
@@ -27,7 +27,7 @@ if(isset($_GET['type']))
 		$password = $_GET['password'];
         
 		//Create Query
-		$query = "Select * from truckers Where username='$username' and password='$password'";
+		$query = "Select * from users Where name='$username' and password='$password'";
 		//Fire your Query against database
 		$result1 = mysqli_query($con,$query);
 		//get total no of rows from database according to the query
